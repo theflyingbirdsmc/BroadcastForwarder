@@ -1,0 +1,7 @@
+name: BroadcastForwarder
+version: '1.0.0'
+main: dk.marcusrokatis.broadcastForwarder.BroadcastForwarder
+api-version: '1.21'
+prefix: Forwarder
+authors: [ Marcus Rokatis ]
+description: Forward broadcasts to DiscordSRV
