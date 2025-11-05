@@ -33,10 +33,15 @@ class BroadcastForwarder : JavaPlugin() {
                     .types(PacketType.Play.Server.SYSTEM_CHAT)
             ) {
                 override fun onPacketSending(event: PacketEvent) {
-                    val plain = extractPlainText(event.packet) ?: return
+                    val packet = event.packet
+
+                    val legacy = extractLegacyStyledText(packet) ?: return
+                    if (legacy.isBlank()) return
+
+                    val plain = extractPlainText(packet) ?: return
                     if (plain.isBlank()) return
 
-                    if (!shouldForward(plain)) return
+                    if (!shouldForward(legacy)) return
                     if (!dedup(plain)) return
 
                     forwardToDiscord(plain)

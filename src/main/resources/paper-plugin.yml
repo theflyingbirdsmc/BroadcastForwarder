@@ -1,5 +1,5 @@
 name: BroadcastForwarder
-version: '1.0.0'
+version: '${version}'
 main: dk.marcusrokatis.broadcastForwarder.BroadcastForwarder
 api-version: '1.21'
 prefix: Forwarder
